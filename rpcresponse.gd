@@ -3,38 +3,23 @@
 # @author bibby<bibby@bbby.org>
 #
 
-var is_error = false
-var response_code = 0
-var body = ""
-var body_length = 0
-var headers
-
-func setIsError(bol):
-	is_error = bol
+var _is_error = false
+var _response_code = 0
+var _body = ""
+var _body_length = 0
+var _headers
 
 func hasError():
-	return is_error
-
-func setBody(msg):
-	body = str(msg)
-
-func setBodyLength(len):
-	body_length = len
-
-func setResponseCode(code):
-	response_code = code
-
-func setHeaders(heads):
-	headers = heads
+	return _is_error
 
 func getBody():
-	return body
+	return _body
 
 func getResponseCode():
-	return response_code
+	return _response_code
 
 func getBodyLength():
-	return body_length
+	return _body_length
 
 func getHeaders():
-	return headers
+	return _headers

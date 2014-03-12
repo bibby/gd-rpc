@@ -3,10 +3,13 @@
 # @author bibby<bibby@bbby.org>
 #
 ## publics
+# static factory(host, post)
 # init( host, port )
+#
 # resetHeaders()
 # setHeaders( dict )
 # setHeader( name, val)
+#
 # get( url )
 # post( url, body )
 # put( url, body )
@@ -20,6 +23,12 @@ var _error = ""
 var _headers = {}
 
 var client = HTTPClient.new()
+
+func factory(host, port):
+	var RPC = preload("rpc.gd") 
+	var rpc = RPC.new()
+	rpc.init(host,port)
+	return rpc
 
 func init(host, port):
 	_host = host
@@ -106,10 +115,10 @@ func _parseBody():
 	
 func _respond(body):
 	var response = RPCResponse.new()
-	response.setBody(body)
-	response.setResponseCode( client.get_response_code() )
-	response.setBodyLength( client.get_response_body_length() )
-	response.setHeaders( client.get_response_headers_as_dictionary() )
+	response._body = body
+	response._response_code = client.get_response_code()
+	response._body_length = client.get_response_body_length()
+	response._headers = client.get_response_headers_as_dictionary()
 	return response
 
 func _errorResponse(body):
