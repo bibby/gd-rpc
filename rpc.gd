@@ -4,6 +4,9 @@
 #
 ## publics
 # init( host, port )
+# resetHeaders()
+# setHeaders( dict )
+# setHeader( name, val)
 # get( url )
 # post( url, body )
 # put( url, body )
@@ -14,12 +17,14 @@ var RPCResponse = preload("rpcresponse.gd")
 var _host = "localhost" # override with init()
 var _port = 80
 var _error = ""
+var _headers = {}
 
 var client = HTTPClient.new()
 
 func init(host, port):
 	_host = host
 	_port = port
+	_headers = {"User-Agent": "Godot Game Engine"}
 
 func get(url):
 	return _request( HTTPClient.METHOD_GET, url, "" )
@@ -34,13 +39,25 @@ func put(url, body):
 func delete(url):
 	return _request( HTTPClient.METHOD_DELETE, url, "" )
 
+func resetHeaders():
+	_headers = {}
+
+func setHeaders(headerDict):
+	for k in headerDict:
+		setHeader(k, headerDict[k])
+
+func setHeader(headerName, value):
+	_headers[headerName] = value
+
 func _request(method, url, body):
 	var res = _connect()
 	if( res.hasError() ):
 		return res
-	else:	
-		client.request( method, url, StringArray(["User-Agent: godot game engine"]), body)
-		# TODO, Content-Type and other headers
+	else:
+		var headers = StringArray()
+		for h in _headers:
+			headers.push_back(h + ": " + _headers[h])
+		client.request( method, url, headers, body)
 	
 	res = _poll();
 	client.close()
