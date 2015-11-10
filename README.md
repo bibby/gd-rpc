@@ -60,6 +60,9 @@ else:
 #TODO
 * Optional form encoding for http-post
 * Optional url encoding for http-get param dictionaries
+* SSL support
+* support for binarieys and biger files (chunked get/post)
+* handel Redirects
 
 # Contributing
 
