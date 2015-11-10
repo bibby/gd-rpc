@@ -3,8 +3,7 @@
 # @author bibby<bibby@bbby.org>
 #
 ## publics
-# static factory(host, post)
-# init( host, port )
+# new( host, port )
 #
 # resetHeaders()
 # setHeaders( dict )
@@ -17,20 +16,15 @@
 
 var RPCResponse = preload("rpcresponse.gd")
 
-var _host = "localhost" # override with init()
+var _host = "localhost" # override with new()
 var _port = 80
 var _error = ""
 var _headers = {}
 
 var client = HTTPClient.new()
 
-func factory(host, port):
-	var RPC = preload("rpc.gd") 
-	var rpc = RPC.new()
-	rpc.init(host,port)
-	return rpc
-
-func init(host, port):
+# override default new()
+func _init(host = "localhost", port = "80"):
 	_host = host
 	_port = port
 	_headers = {"User-Agent": "Godot Game Engine"}
