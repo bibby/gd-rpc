@@ -10,14 +10,15 @@ Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
 
 ### rpc
 
-The class in `rpc.gd` contains a factory method for producing a reusable blocking rpc channel.
-
 ```
 var RPC = preload("rpc.gd")
 var www
 
 func _init():
-    www = RPC.factory("localhost", 80)
+    www = RPC.new() # use "localhost", on port 80
+    # or for "http://myhost.example:1234":
+    www = RPC.new("myhost.example", 1234)
+
 ```
 
 By default, the `www` object has a user-agent header set. You may set your own headers. This is done separate from any actual request.
@@ -63,5 +64,3 @@ else:
 # Contributing
 
 Please, if you have a feature you'd like to have added, create an issue on github or send a pull request.
-
-If you have reusable GDScripts that you'd like to share with the rest of the Godot community, consider checking out the source of [gdrepo.org](http://www.gdrepo.org) and highlighting it.
