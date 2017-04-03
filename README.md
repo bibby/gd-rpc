@@ -18,7 +18,8 @@ func _init():
     www = RPC.new() # use "localhost", on port 80
     # or for "http://myhost.example:1234":
     www = RPC.new("myhost.example", 1234)
-    
+
+func _ready():
     add_child(www)  # NOTE: It's important to add rpc as a node to your tree
 ```
 
