@@ -1,7 +1,7 @@
-gd-rpc
+gd-rpc-threaded
 ======
 
-Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
+Threaded Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
 
 ## Installation
 *rpc* and *rpcresponse* are [GDScript](https://github.com/okamstudio/godot/wiki/gdscript)s, so you need only drop into your Godot project's resourse location. They are standalone classes; They do inherit from a built-in type.
