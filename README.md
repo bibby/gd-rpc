@@ -18,7 +18,8 @@ func _init():
     www = RPC.new() # use "localhost", on port 80
     # or for "http://myhost.example:1234":
     www = RPC.new("myhost.example", 1234)
-
+    
+    add_child(www)  # NOTE: It's important to add rpc as a node to your tree
 ```
 
 By default, the `www` object has a user-agent header set. You may set your own headers. This is done separate from any actual request.
