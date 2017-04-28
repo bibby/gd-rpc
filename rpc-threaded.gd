@@ -1,4 +1,4 @@
-## rpc.gd
+## rpc-threaded.gd
 # A threaded RPC channel using HTTPClient
 # @author Kirill Omelchenko<kirill.omelchenko@gmail.com>
 # Based on the work of
