@@ -4,7 +4,7 @@ gd-rpc
 Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
 
 ## Installation
-*rpc* and *rpcresponse* are [GDScript](https://github.com/okamstudio/godot/wiki/gdscript)s, so you need only drop into your Godot project's resourse location. They are standalone classes; They do inherit from a built-in type.
+*rpc* and *rpcresponse* are [GDScript](https://github.com/okamstudio/godot/wiki/gdscript)s, so you only need to drop them into your Godot project's resource folder. They are standalone classes; They do not inherit from a built-in type.
 
 ## Use
 
