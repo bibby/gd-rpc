@@ -1,10 +1,10 @@
-gd-rpc
+gd-rpc-threaded
 ======
 
-Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
+Threaded Web requests in GDScript for [Godot game engine](github.com/okamstudio/godot).
 
 ## Installation
-*rpc* and *rpcresponse* are [GDScript](https://github.com/okamstudio/godot/wiki/gdscript)s, so you only need to drop them into your Godot project's resource folder. They are standalone classes; They do not inherit from a built-in type.
+*rpc-threaded* and *rpcresponse* are [GDScript](https://github.com/okamstudio/godot/wiki/gdscript)s, so all you need is to drop them into your Godot project's resource directory. *rpc-threaded* inherits from Node and is to be added to your node-tree, *rpcresponse* is a standalone class inherits from built-in type. 
 
 ## Use
 
@@ -19,6 +19,8 @@ func _init():
     # or for "http://myhost.example:1234":
     www = RPC.new("myhost.example", 1234)
 
+func _ready():
+    add_child(www)  # NOTE: It's important to add rpc as a node to your tree
 ```
 
 By default, the `www` object has a user-agent header set. You may set your own headers. This is done separate from any actual request.
