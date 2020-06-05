@@ -47,7 +47,7 @@ r = www.post("/ratings/" + id, '{"rating":4,"review":"ok"}')
 r = www.delete("/reviews/12")
 ```
 
-##rpcresponse
+## rpcresponse
 
 Every request (using `get`, `post`, `put`, `delete`) returns a RpcResponse object, a data container with the response's HTTP Status code, body, and headers. Check for errors before assuming all went well;
 
@@ -63,8 +63,8 @@ else:
 * Optional form encoding for http-post
 * Optional url encoding for http-get param dictionaries
 * SSL support
-* support for binarieys and biger files (chunked get/post)
-* handel Redirects
+* support for binaries and bigger files (chunked get/post)
+* handle Redirects
 
 # Contributing
 
